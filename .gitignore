@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Backups and local notes
+*.bak
+
+# Personal Claude Code context — gitignored so personal/strategic notes
+# stay local while still being read by Claude Code on session startup.
+CLAUDE.md
+
+# Claude Code per-folder local settings (tool permission allowlist, etc).
+.claude/settings.local.json
+
+# macOS double-click shortcuts — personal developer convenience, not a
+# user-facing artifact of the installer.
+*.command

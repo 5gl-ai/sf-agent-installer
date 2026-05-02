@@ -42,21 +42,30 @@ and skips.
 > if it isn't already installed; if anything goes sideways, see the manual
 > fallback at the bottom of this section.
 
-1. Open **PowerShell as Administrator** (Start menu → right-click PowerShell →
+Windows doesn't ship with `git`, so the easiest way to get the installer onto
+your machine is the GitHub ZIP:
+
+1. In your browser, go to https://github.com/5gl-ai/sf-agent-installer
+2. Click the green **"Code"** button → **"Download ZIP"**
+3. Right-click the downloaded zip → **"Extract All..."**. Note the extracted
+   folder path (typically
+   `C:\Users\<you>\Downloads\sf-agent-installer-main\sf-agent-installer-main\`
+   — GitHub nests the contents inside a folder of the same name).
+4. Open **PowerShell as Administrator** (Start menu → right-click PowerShell →
    "Run as Administrator").
-2. Clone the repo and run the installer:
+5. `cd` into the extracted folder, then run:
    ```powershell
-   git clone https://github.com/5GL-ai/sf-agent-installer.git
-   cd sf-agent-installer
-   .\install.ps1
+   powershell -ExecutionPolicy Bypass -File .\install.ps1
    ```
-3. If WSL isn't installed yet, the script will install it and ask you to
+   Windows blocks unsigned `.ps1` files by default; the `-ExecutionPolicy
+   Bypass` flag is per-session and doesn't change system state.
+6. If WSL isn't installed yet, the script will install it and ask you to
    reboot.
-4. After reboot, Ubuntu opens automatically and asks for a Linux username /
+7. After reboot, Ubuntu opens automatically and asks for a Linux username /
    password. Set them — you'll need the password for `sudo` later.
-5. Re-run `.\install.ps1` from an Admin PowerShell. This time it'll detect WSL
-   is ready, prompt you for your Anthropic API key, and finish the install
-   inside Ubuntu.
+8. Re-run the same command from step 5 (Admin PowerShell). This time it'll
+   detect WSL is ready, prompt you for your Anthropic API key, and finish the
+   install inside Ubuntu.
 
 **Manual WSL fallback** (if `install.ps1` can't bootstrap WSL on your
 machine — e.g., corporate group policy blocks it):

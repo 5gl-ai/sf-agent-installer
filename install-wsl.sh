@@ -194,9 +194,12 @@ sudo_keepalive_pid=$!
 trap 'kill "$sudo_keepalive_pid" 2>/dev/null || true; on_exit' EXIT
 
 # ---------- 8. apt base packages ----------
-step "Base packages (git, python3, curl)"
+# wslu provides `wslview`, which agents shipping a local web UI use to launch
+# the user's Windows-side default browser from inside WSL (per the
+# 2026-05-02 local-web-UI decision in the master log).
+step "Base packages (git, python3, curl, wslu)"
 sudo apt-get update -y -qq
-sudo apt-get install -y -qq git python3 python3-pip python3-venv curl ca-certificates gnupg
+sudo apt-get install -y -qq git python3 python3-pip python3-venv curl ca-certificates gnupg wslu
 ok "Base packages installed."
 
 # ---------- 9. Node.js ----------

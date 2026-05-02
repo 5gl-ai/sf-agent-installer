@@ -1,7 +1,7 @@
-# sf-agent-installer — Windows entry point
+# sf-agent-installer - Windows entry point
 #
 # Bootstraps WSL (Windows Subsystem for Linux) with Ubuntu, then runs
-# install-wsl.sh inside it. Idempotent — safe to re-run.
+# install-wsl.sh inside it. Idempotent - safe to re-run.
 #
 # Usage (Admin PowerShell):
 #     .\install.ps1
@@ -47,7 +47,7 @@ function Show-FailureBanner {
     Write-Host ""
     Write-Host "  3) VIRTUALIZATION DISABLED IN BIOS" -ForegroundColor White
     Write-Host "     Reboot into BIOS/UEFI and enable Intel VT-x or AMD-V."
-    Write-Host "     Some corporate-locked machines block this — contact IT."
+    Write-Host "     Some corporate-locked machines block this - contact IT."
     Write-Host ""
     Write-Host "  4) REBOOT PENDING" -ForegroundColor White
     Write-Host "     A previous step needs a reboot before it takes effect."
@@ -160,7 +160,7 @@ Ok "WSL kernel is installed."
 if (-not $ubuntuReady) {
     Err "Ubuntu is installed but not initialized."
     Err "Open Start menu -> Ubuntu. The first launch will ask for a Linux"
-    Err "username and password — set them, then re-run this script."
+    Err "username and password - set them, then re-run this script."
     exit 1
 }
 Ok "Ubuntu is ready."
@@ -191,7 +191,7 @@ Ok "WSL path: $wslPath"
 
 # ---------- 6. Run install-wsl.sh inside Ubuntu ----------
 Step "Running Linux install inside WSL"
-Write-Host "Handing off to Ubuntu — you may be asked for your Linux sudo password." -ForegroundColor White
+Write-Host "Handing off to Ubuntu - you may be asked for your Linux sudo password." -ForegroundColor White
 Write-Host ""
 
 # Run the bash script as the default Ubuntu user. The script handles its own
